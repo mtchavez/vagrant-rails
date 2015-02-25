@@ -1,0 +1,11 @@
+---
+redis_host: "localhost"
+redis_port: 6379
+redis_apt_key: "5862E31D"
+redis_apt_repos:
+  - "ppa:rwky/redis"
+redis_logfiles: "/var/log/redis/*.log"
+redis_pid: "/var/run/redis/redis.pid"
+redis_config: "/etc/redis/redis.conf"
+redis_max_memory: "64mb"
+redis_version: "2:2.8.19-rwky1~trusty"
