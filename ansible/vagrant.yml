@@ -3,7 +3,13 @@
 - hosts: all
   user: vagrant
   sudo: yes
+  vars:
+    postgresql_users:
+      - name: vagrant
+        pass: ""
+        encrypted: no
   roles:
     - base
     - { role: aeriscloud.rvm }
     - { role: ANXS.nodejs, nodejs_version: "0.10.26", nodejs_install_method: "binary" }
+    - { role: ANXS.postgresql }
