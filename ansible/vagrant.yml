@@ -1,3 +1,8 @@
 ---
 
 - hosts: all
+  user: vagrant
+  sudo: yes
+  roles:
+    - base
+    # - { role: ANXS.nodejs, nodejs_version: "0.10.26", nodejs_install_method: "binary" }

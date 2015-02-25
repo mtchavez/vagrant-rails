@@ -1,0 +1,25 @@
+---
+
+- name: Install base packages
+  apt: pkg={{item}} update_cache=yes
+  with_items:
+    - build-essential
+    - autoconf
+    - automake
+    - curl
+    - git
+    - htop
+    - iotop
+    - screen
+    - vim
+
+- name: Install library dependencies
+  apt: pkg={{item}}
+  with_items:
+    - libffi-dev
+    - libjpeg-dev
+    - libssl-dev
+    - libpng-dev
+    - libxml2
+    - libxml2-dev
+    - libxslt1-dev
