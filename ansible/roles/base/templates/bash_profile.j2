@@ -1,0 +1,13 @@
+# Managed by Ansible
+
+# Load in custom bash config files for profle
+if [ -d $HOME/.bash.d ]; then
+  for i in $HOME/.bash.d/*.bash; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+# vim: ft=sh:
