@@ -8,8 +8,10 @@ Vagrant.configure(2) do |config|
   # Virtualbox VM config
   config.vm.provider 'virtualbox' do |vb|
     vb.name = 'vag-rails'
-    vb.memory = '2048'
+    vb.memory = '4096'
     vb.cpus = 2
+    opts = ['modifyvm', :id, '--natdnshostresolver1', 'on']
+    vb.customize opts
   end
 
   # Ansible provisioning
