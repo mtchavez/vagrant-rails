@@ -6,3 +6,4 @@
   roles:
     - base
     - { role: aeriscloud.rvm }
+    - { role: ANXS.nodejs, nodejs_version: "0.10.26", nodejs_install_method: "binary" }
