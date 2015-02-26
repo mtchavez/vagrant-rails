@@ -10,9 +10,11 @@
     - autoconf
     - automake
     - curl
+    - dkms
     - git
     - htop
     - iotop
+    - linux-headers-generic
     - screen
     - vim
 
