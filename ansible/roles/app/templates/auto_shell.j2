@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# Auto set up app environment
+#
+
+SCRIPT_SHELL="/usr/local/bin/app_shell"
+
+# We only do this on an interactive shell
+if [[ $- == *i* ]]; then
+  # We haven't already done this before...
+  if [ ! ${AUTO_SHELLED+x} ]; then
+    # Mark that we've done it
+    export AUTO_SHELLED=1
+
+    # Shell in, with sudo
+    sudo -E ${SCRIPT_SHELL}
+  fi
+fi

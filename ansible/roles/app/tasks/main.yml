@@ -1,7 +1,37 @@
 ---
 
+- name: Install dev packages
+  apt: pkg={{item}} update_cache=yes
+  with_items:
+    - "postgresql-server-dev-{{postgresql_version}}"
+
+- name: Add vagrant as postgres superuser
+  command: psql -U postgres template1 -c "ALTER USER vagrant WITH SUPERUSER;"
+
+- name: Install bundler
+  gem: name=bundler
+
 - name: Install global node packages
   npm: name={{item}} global=yes
   with_items:
     - coffee-script
     - phantomjs
+
+- name: Make app dir
+  file: path={{app_dir}} state=directory
+
+- name: Defaults dir
+  command: mkdir -p /usr/local/etc/defaults
+
+- name: Chown rvm
+  command: "chown -R vagrant:vagrant /usr/local/rvm/"
+
+- name: App config file
+  file: path={{app_config}} state=touch
+
+- name: Profile shell
+  template: src=auto_shell.j2 dest=/etc/profile.d/app_auto_shell.sh mode=0755
+
+- name: App shell
+  template: src=app_shell.j2 dest=/usr/local/bin/app_shell mode=0755
+

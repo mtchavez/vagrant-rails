@@ -1,0 +1,5 @@
+---
+
+app_dir: "/srv/app"
+app_config: "/usr/local/etc/defaults/app"
+pg_config_dir: "/etc/postgresql/{{postgresql_version}}/main"

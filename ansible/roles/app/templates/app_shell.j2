@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Sets up environment then opens up a shell.
+#
+set -e
+
+if [ "$EUID" != "0" ]; then
+   echo "This script must be run as root" >&2
+   exit 1
+fi
+
+# Load custom app config
+. "{{app_config}}"
+
+# Change into app dir
+cd "{{app_dir}}"
+
+# Switch to vagrant user
+su -m -l vagrant
