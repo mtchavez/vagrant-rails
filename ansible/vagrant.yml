@@ -8,10 +8,11 @@
       - name: vagrant
         pass: ""
         encrypted: no
+    postgresql_version: 9.4
   roles:
     - base
     - { role: aeriscloud.rvm }
-    - { role: ANXS.nodejs, nodejs_version: "0.10.26", nodejs_install_method: "binary" }
+    - { role: ANXS.nodejs, nodejs_version: "0.12.0", nodejs_install_method: "binary" }
     - { role: ANXS.postgresql }
     - { role: bennojoy.memcached }
     - redis
